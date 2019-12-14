@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 //custom components
 import HomeSearch from './HomeSearch'
+import ShowList from './ShowList'
 
 //api calls
 import { SearchTvByTitle } from '../services/api-helper'
@@ -16,6 +17,7 @@ class Home extends Component {
       showResults: [],
       showListResults: [],
       showSearched: false,
+      imgSize: "200"
     }
   }
 
@@ -27,9 +29,9 @@ class Home extends Component {
     })
   }
 
-  searchSubmit = (e) => {
+  searchSubmit = async (e) => {
     e.preventDefault();
-
+    await this.tvSearch();
     this.setState({
       title: ""
     })
@@ -44,12 +46,20 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="home">
+        <div>{this.state.showResults.length}</div>
         <HomeSearch
           searchTextChange={this.searchTextChange}
           searchSubmit={this.searchSubmit}
           title={this.state.title}
         />
+          {this.state.showSearched &&
+          <ShowList
+            shows={this.state.showResults}
+            imgPath={this.state.baseImgPath}
+            imgSize={this.state.imgSize}
+          />
+          }
       </div>
     )
   }
