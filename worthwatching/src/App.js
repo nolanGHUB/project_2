@@ -3,6 +3,9 @@ import './App.css';
 
 //custom components
 import Show from './components/Show'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './components/Home'
 
 //api calls
 import { SearchTvByTitle } from './services/api-helper'
@@ -21,7 +24,7 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const showResults = await SearchTvByTitle("Mandalorian")
+    const showResults = await SearchTvByTitle(this.state.title)
     this.setState({
       showResults,
       showSearched: true,
@@ -29,10 +32,10 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.showResults)
     return (
       <div className="App">
-
+        <Header />
+        <Home />
         <div>
           {this.state.showSearched &&
           <Show
@@ -41,6 +44,7 @@ class App extends Component {
           />
           }
         </div>
+        <Footer />
       </div>
     );
   }

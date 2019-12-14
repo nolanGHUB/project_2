@@ -4,8 +4,15 @@ img{
 
 .App {
   width: 100%;
-  /* border: 1px solid black; */
+  border: 1px solid black;
   display: flex;
+  flex-direction: column;
+}
+.header {
+  border: 1px solid black;
+}
+.footer{
+  border: 1px solid black;
 }
 .show {
   border: 1px solid black;
@@ -15,4 +22,7 @@ img{
 .show-title {
   font-size: 20px;
   text-align: center;
+}
+.show-wrapper {
+  display: flex;
 }
