@@ -1,0 +1,18 @@
+img{
+  display: flex;
+}
+
+.App {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+}
+.show {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.show-title {
+  font-size: 20px;
+  text-align: center;
+}
