@@ -5,6 +5,10 @@ import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
+import ShowDetails from './components/ShowDetails'
+
+//react-router
+import { Switch, Route } from 'react-router-dom'
 
 
 class App extends Component {
@@ -19,9 +23,25 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Home />
-        <Footer />
+        
+        <Switch>
+          <Route
+            path="/details/:showId"
+            render={(props) => 
+              <div>
+                <Header />
+                <ShowDetails {...props} />
+                <Footer />
+              </div> 
+            } 
+          />
+          <Route
+            path="/" >
+              <Header />
+              <Home />
+              <Footer />
+          </Route>
+        </Switch>
       </div>
     );
   }
