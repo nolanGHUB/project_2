@@ -7,3 +7,8 @@ export const SearchTvByTitle = async (title) => {
   const res = await axios.get(`${baseUrl}search/tv?api_key=${apiKey}&language=en-US&query=${title}&page=1`);
   return (res.data.results);
 }
+
+export const SearchTvById = async (id) => {
+  const res = await axios.get(`${baseUrl}tv/${id}?api_key=${apiKey}&language=en-US`)
+  return (res.data);
+}
