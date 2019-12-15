@@ -1,5 +1,8 @@
 import React from 'react'
 
+//custom components
+import Nav from './Nav'
+
 const Header = () => {
   return (
     <div className="header">
@@ -7,7 +10,7 @@ const Header = () => {
         WORTH WATCHING LOGO
       </div>
       <div>
-        NAV BAR
+        <Nav />
       </div>
     </div>
   )

@@ -8,7 +8,7 @@ import Home from './components/Home'
 import ShowDetails from './components/ShowDetails'
 
 //react-router
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
 class App extends Component {
   constructor(props) {
@@ -31,8 +31,12 @@ class App extends Component {
             } 
           />
           <Route
-            path="/" >
+            path="/home">
               <Home />
+          </Route>
+          <Route
+            exact path="/">
+              <Redirect to='/home' />
           </Route>
         </Switch>
         <Footer />

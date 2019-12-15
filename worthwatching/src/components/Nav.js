@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <nav>
-      <NavLink to="/" activeClassName="selected">
+    <nav className="nav">
+      <NavLink to="/home" activeClassName="selected">
         Home
       </NavLink>
       <NavLink to="/top" activeClassName="selected">
