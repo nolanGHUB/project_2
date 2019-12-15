@@ -10,7 +10,6 @@ import ShowDetails from './components/ShowDetails'
 //react-router
 import { Switch, Route } from 'react-router-dom'
 
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -23,25 +22,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <Header />
         <Switch>
           <Route
             path="/details/:showId"
             render={(props) => 
-              <div>
-                <Header />
-                <ShowDetails {...props} />
-                <Footer />
-              </div> 
+              <ShowDetails {...props} />
             } 
           />
           <Route
             path="/" >
-              <Header />
               <Home />
-              <Footer />
           </Route>
         </Switch>
+        <Footer />
       </div>
     );
   }
