@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Similar = () => {
+//custom components
+import ShowList from './ShowList'
+
+const Similar = (props) => {
   return (
     <div>
 
