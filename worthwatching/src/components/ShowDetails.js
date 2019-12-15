@@ -58,7 +58,7 @@ class ShowDetails extends Component {
         <div className="details-img">
           <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
         </div>
-        <div className="detail-text">
+        <div className="details-text">
           {this.state.hasLoaded &&
           <div>
             <div className="details-title">

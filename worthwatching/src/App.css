@@ -36,6 +36,11 @@ img{
   flex-direction: row;
 }
 
+.details-text {
+  display: flex;
+  margin: 5px;
+}
+
 .details-title {
   font-size: 50px;
   border: 1px solid black;
@@ -47,6 +52,7 @@ img{
 
 .details-img {
   border: 1px solid black;
+  margin-right: 10px;
 }
 
 .details-info {
