@@ -7,6 +7,7 @@ import ShowList from './ShowList'
 //api calls
 import { SearchTvByTitle } from '../services/api-helper'
 
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -56,11 +57,11 @@ class Home extends Component {
           title={this.state.title}
         />
         {this.state.showSearched &&
-        <ShowList
-          shows={this.state.searchResults}
-          imgPath={this.state.baseImgPath}
-          imgSize={this.state.imgSize}
-        />
+            <ShowList
+              shows={this.state.searchResults}
+              imgPath={this.state.baseImgPath}
+              imgSize={this.state.imgSize}
+            />
         }
       </div>
     )
