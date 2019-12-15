@@ -47,7 +47,6 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <div>{this.state.showResults.length}</div>
         <HomeSearch
           searchTextChange={this.searchTextChange}
           searchSubmit={this.searchSubmit}

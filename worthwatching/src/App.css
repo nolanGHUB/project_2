@@ -3,11 +3,16 @@ img{
 }
 
 .App {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   width: 75%;
   margin: 20px auto;
+}
+.home {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  min-height: 450px;
+  margin: 0;
 }
 
 .header {
@@ -22,12 +27,14 @@ img{
   text-align: center;
 }
 
-.home {
-  margin: 40px 0;
+.home-search {
+  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
-.home-search {
-  margin: 20px;
+.home-search-form {
+  display: flex;
+  justify-content: center;
 }
 
 .show-list-wrapper {
@@ -49,7 +56,7 @@ img{
 .show {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  border: 1px solid black;
   align-items: center;
   max-width: 200px;
 }
