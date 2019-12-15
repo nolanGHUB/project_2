@@ -48,7 +48,11 @@ a {
   border-right: 1px solid black;
   min-height: 450px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+.details-img-and-text-wrapper{
+  display: flex;
+  max-height: 450px;
 }
 
 .details-text {
@@ -65,9 +69,11 @@ a {
   border: 1px solid black;
 }
 
-.details-img {
+.details-img > img {
   border: 1px solid black;
-  margin-right: 10px;
+  width: 300px;
+  height: 448px;
+  max-height: 450px;
 }
 
 .details-info {
