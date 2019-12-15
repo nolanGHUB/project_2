@@ -14,17 +14,20 @@ class Home extends Component {
     this.state = {
       baseImgPath: "https://image.tmdb.org/t/p/w",
       title: "",
-      showResults: [],
-      showListResults: [],
+      searchResults: [],
       showSearched: false,
       imgSize: "200"
     }
   }
 
   tvSearch = async () => {
-    const showResults = await SearchTvByTitle(this.state.title)
+    const searchResults = await SearchTvByTitle(this.state.title);
+    const filteredResults = searchResults.filter(show =>
+      show.poster_path && show.vote_count > 0 && show.overview
+    )
+
     this.setState({
-      showResults,
+      searchResults: filteredResults,
       showSearched: true,
     })
   }
@@ -52,13 +55,13 @@ class Home extends Component {
           searchSubmit={this.searchSubmit}
           title={this.state.title}
         />
-          {this.state.showSearched &&
-          <ShowList
-            shows={this.state.showResults}
-            imgPath={this.state.baseImgPath}
-            imgSize={this.state.imgSize}
-          />
-          }
+        {this.state.showSearched &&
+        <ShowList
+          shows={this.state.searchResults}
+          imgPath={this.state.baseImgPath}
+          imgSize={this.state.imgSize}
+        />
+        }
       </div>
     )
   }
