@@ -8,6 +8,7 @@ img{
   width: 75%;
   margin: 20px auto;
 }
+
 .home {
   border-left: 1px solid black;
   border-right: 1px solid black;
@@ -31,6 +32,8 @@ img{
   border-left: 1px solid black;
   border-right: 1px solid black;
   min-height: 450px;
+  display: flex;
+  flex-direction: row;
 }
 
 .details-title {
