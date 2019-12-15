@@ -27,6 +27,12 @@ img{
   text-align: center;
 }
 
+.show-details {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  min-height: 450px;
+}
+
 .home-search {
   margin-top: 50px;
   margin-bottom: 40px;
