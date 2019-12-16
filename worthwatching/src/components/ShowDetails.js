@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 //api calls
 import { SearchTvById, SearchSimilarTvById } from '../services/api-helper'
@@ -12,7 +12,7 @@ import Similar from './Similar'
 class ShowDetails extends Component {
   constructor(props) {
     super(props)
-    
+
     this.state = {
       idResults: [],
       similarResults: [],
@@ -32,15 +32,15 @@ class ShowDetails extends Component {
     await this.getSimilar();
   }
 
-//  componentDidUpdate = (prevProps) =>{
-//     let oldId = prevProps.match.params.showId
-//     let newId = this.props.match.params.showId
-//     if (newId !== oldId) {
-//       console.log("FETCH NEW DATA ON DID UPDATE")
-//       this.props.fetchResource();
-//       console.log("AFTER GETDETAILS")
-//     }
-//   }
+  //  componentDidUpdate = (prevProps) =>{
+  //     let oldId = prevProps.match.params.showId
+  //     let newId = this.props.match.params.showId
+  //     if (newId !== oldId) {
+  //       console.log("FETCH NEW DATA ON DID UPDATE")
+  //       this.props.fetchResource();
+  //       console.log("AFTER GETDETAILS")
+  //     }
+  //   }
 
   getSimilar = async () => {
     const similarResults = await SearchSimilarTvById(this.state.id);
@@ -84,7 +84,7 @@ class ShowDetails extends Component {
 
         {this.state.hasDetailsLoaded &&
           <main className="details-img-and-text-wrapper">
-          
+
             <div className="details-img">
               <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
             </div>
@@ -99,28 +99,29 @@ class ShowDetails extends Component {
               </div>
 
               <div className="details-info">
-                <h3>Show Info:</h3>
-                <div>
+                <div className="details-info-text">
                   {this.state.isMiniseries &&
-                  this.state.idResults.type}
+                    this.state.idResults.type}
                 </div>
                 {this.state.creator &&
-                  <div>Created by: {this.state.creator}</div>
+                  <div className="details-info-header">CREATED BY: <span className="details-info-text">{this.state.creator}</span></div>
                 }
                 {this.state.network &&
-                  <div>Where to watch: {this.state.network}</div>
+                  <div className="details-info-header">NETWORK: <span className="details-info-text">{this.state.network}</span></div>
                 }
-                <div>Run time: {this.state.idResults.episode_run_time[0]} minutes</div>
-                <div>Episodes: {this.state.idResults.number_of_episodes}</div>
-                <div>Seasons: {this.state.idResults.number_of_seasons}</div>
-                <div>Originally aired on: {this.state.idResults.first_air_date}</div>
+                <div className="details-info-header">RUN TIME: <span className="details-info-text">{this.state.idResults.episode_run_time[0]} minutes</span></div>
+                <div className="details-info-header">EPISODES: <span className="details-info-text">{this.state.idResults.number_of_episodes}</span></div>
+                <div className="details-info-header">SEASONS: <span className="details-info-text">{this.state.idResults.number_of_seasons}</span></div>
+                <div className="details-info-header">AIR DATE: <span className="details-info-text">{this.state.idResults.first_air_date}</span></div>
+                <div className="details-info-header">STARRING:</div>
+                <div className="details-info-header">WHERE TO WATCH:</div>
                 {this.state.ended && <div>No longer on the air</div>}
-                {this.state.idResults.next_episode_to_air && <div>Next Episode: {this.state.idResults.next_episode_to_air.name} @ {this.state.idResults.next_episode_to_air.air_date}</div>}
+                {this.state.idResults.next_episode_to_air && <div className="details-info-header">NEXT EPISODE: <span className="details-info-text">{this.state.idResults.next_episode_to_air.name} @ {this.state.idResults.next_episode_to_air.air_date}</span></div>}
               </div>
             </div>
           </main>
         }
-        
+
         {this.state.hasSimilarLoaded &&
           <div>
             <Similar
