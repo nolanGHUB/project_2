@@ -29,6 +29,6 @@ export const SearchTvAiringToday = async () => {
 }
 
 export const SearchTvCredits = async (id) => {
-  constres = await axios.get(`${baseUrl}tv/${id}/credits?api_key=${apiKey}&language=en-US`)
+  const res = await axios.get(`${baseUrl}tv/${id}/credits?api_key=${apiKey}&language=en-US`)
   return (res.data.cast)
 }
