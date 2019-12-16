@@ -18,7 +18,7 @@ export const SearchSimilarTvById = async (id) => {
   return (res.data.results);
 }
 
-export const SearchTrendingTV = async () => {
+export const SearchTrendingTv = async () => {
   const res = await axios.get(`${baseUrl}trending/tv/week?api_key=${apiKey}`)
-  return (res.data)
+  return (res.data.results)
 }
