@@ -31,7 +31,6 @@ class Trending extends Component {
   }
 
   render() {
-    console.log(this.state.trendingTv)
     return (
       <div className="trending">
         {this.state.hasLoaded &&
@@ -44,7 +43,6 @@ class Trending extends Component {
       </div>
     )
   }
-  
 }
 
 export default Trending
