@@ -116,32 +116,37 @@ class ShowDetails extends Component {
               </div>
 
               <div className="details-info">
-                <div className="details-info-text">
-                  {this.state.isMiniseries &&
-                    this.state.idResults.type}
-                </div>
-                {this.state.creator &&
-                  <div className="details-info-header">CREATED BY: <span className="details-info-text">{this.state.creator}</span></div>
-                }
+                <div className="details-info-left">
+                  <div className="details-info-text">
+                    {this.state.isMiniseries &&
+                      this.state.idResults.type}
+                  </div>
+                  {this.state.creator &&
+                    <div className="details-info-header details-info-column" >CREATED BY: <span className="details-info-text">{this.state.creator}</span></div>
+                  }
+                  <div className="details-info-header details-info-column">STARRING:</div>
+                  {this.state.castList.map((name, key) =>
+                    <div className="details-info-text" key={key}>
+                      {name}
+                    </div>
+                  )}
+              </div>
+              <div className="details-info-right">
                 {this.state.network &&
-                  <div className="details-info-header">NETWORK: <span className="details-info-text">{this.state.network}</span></div>
+                  <div className="details-info-header details-info-column">NETWORK: <span className="details-info-text">{this.state.network}</span></div>
                 }
-                <div className="details-info-header">RUN TIME: <span className="details-info-text">{this.state.idResults.episode_run_time[0]} minutes</span></div>
-                <div className="details-info-header">EPISODES: <span className="details-info-text">{this.state.idResults.number_of_episodes}</span></div>
-                <div className="details-info-header">SEASONS: <span className="details-info-text">{this.state.idResults.number_of_seasons}</span></div>
-                <div className="details-info-header">AIR DATE: <span className="details-info-text">{this.state.idResults.first_air_date}</span></div>
-              <div className="details-info-header">STARRING:</div>
-              {this.state.castList.map((name, key) =>
-                <div className="details-info-text" key={key}>
-                  {name}
-                </div>
-              )}
-                <div className="details-info-header">WHERE TO WATCH:</div>
+                <div className="details-info-header details-info-column">RUN TIME: <span className="details-info-text">{this.state.idResults.episode_run_time[0]} minutes</span></div>
+                <div className="details-info-header details-info-column">EPISODES: <span className="details-info-text">{this.state.idResults.number_of_episodes}</span></div>
+                <div className="details-info-header details-info-column">SEASONS: <span className="details-info-text">{this.state.idResults.number_of_seasons}</span></div>
+                <div className="details-info-header details-info-column">AIR DATE: <span className="details-info-text">{this.state.idResults.first_air_date}</span></div>
+
+                {/* <div className="details-info-header details-info-column">WHERE TO WATCH:</div> */}
                 {this.state.ended && <div>No longer on the air</div>}
-                {this.state.idResults.next_episode_to_air && <div className="details-info-header">NEXT EPISODE: <span className="details-info-text">{this.state.idResults.next_episode_to_air.name} @ {this.state.idResults.next_episode_to_air.air_date}</span></div>}
+                {this.state.idResults.next_episode_to_air && <div className="details-info-header details-info-column">NEXT EPISODE: <span className="details-info-text">{this.state.idResults.next_episode_to_air.name} @ {this.state.idResults.next_episode_to_air.air_date}</span></div>}
               </div>
             </div>
-          </main>
+          </div>
+        </main>
         }
 
         {this.state.hasSimilarLoaded &&
