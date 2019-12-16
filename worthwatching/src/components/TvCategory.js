@@ -51,7 +51,7 @@ class TvCategory extends Component {
     this.setState({
       tvResults,
       hasLoaded: true,
-      title: "TRENDING IN THE LAST 7 DAYS"
+      title: "TRENDING THIS WEEK"
     })
   }
 
