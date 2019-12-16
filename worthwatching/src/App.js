@@ -44,7 +44,7 @@ class App extends Component {
           <Route
             path="/tonight"
             render={props =>
-              <TvCategory {...props} category="tonight" key={Math.random()} />}>
+              <TvCategory {...props} category="tonight" key={Math.random} />}>
           </Route>
           <Route
             exact path="/">
