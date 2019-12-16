@@ -2,6 +2,11 @@ img{
   display: flex;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -16,6 +21,12 @@ img{
   margin: 0;
 }
 
+.trending {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  padding: 25px;
+}
+
 .header {
   border: 1px solid black;
   padding: 10px 0;
@@ -26,11 +37,6 @@ img{
   font-size: 20px;
   display: flex;
   justify-content: space-around;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
 
 .selected {
