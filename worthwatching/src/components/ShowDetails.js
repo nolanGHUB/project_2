@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 
 //api calls
-import { SearchTvById, SearchSimilarTvById } from '../services/api-helper'
-
-//react-router
-import { withRouter } from 'react-router-dom' //Some reason unbeknownst to me this allows the screen scroll to reset to the top of the page instead of where-i-last-was
+import { SearchTvById, SearchSimilarTvById, SearchTvCredits } from '../services/api-helper'
 
 //custom components
 import Similar from './Similar'
@@ -15,12 +12,14 @@ class ShowDetails extends Component {
 
     this.state = {
       idResults: [],
+      castList: [],
       similarResults: [],
       baseImgPath: "https://image.tmdb.org/t/p/w",
       imgSize: "300",
       id: this.props.match.params.showId,
       hasDetailsLoaded: false,
       hasSimilarLoaded: false,
+      hasCastLoaded: false,
       isMiniseries: false,
       creator: "",
       network: "",
@@ -30,6 +29,7 @@ class ShowDetails extends Component {
   async componentDidMount() {
     await this.getDetails();
     await this.getSimilar();
+    await this.getCast();
   }
 
   //  componentDidUpdate = (prevProps) =>{
@@ -41,6 +41,23 @@ class ShowDetails extends Component {
   //       console.log("AFTER GETDETAILS")
   //     }
   //   }
+
+  getCast = async () => {
+    const castList = await SearchTvCredits(this.state.id);
+    if (castList.length > 5) {
+      castList.length = 5
+    }
+
+    let castNames = [];
+    castList.map((member, key) =>
+      castNames.push(member.name)
+    )
+
+    this.setState({
+      castList: castNames,
+      hasCastLoaded: true
+    })
+  }
 
   getSimilar = async () => {
     const similarResults = await SearchSimilarTvById(this.state.id);
@@ -113,7 +130,12 @@ class ShowDetails extends Component {
                 <div className="details-info-header">EPISODES: <span className="details-info-text">{this.state.idResults.number_of_episodes}</span></div>
                 <div className="details-info-header">SEASONS: <span className="details-info-text">{this.state.idResults.number_of_seasons}</span></div>
                 <div className="details-info-header">AIR DATE: <span className="details-info-text">{this.state.idResults.first_air_date}</span></div>
-                <div className="details-info-header">STARRING:</div>
+              <div className="details-info-header">STARRING:</div>
+              {this.state.castList.map((name, key) =>
+                <div className="details-info-text" key={key}>
+                  {name}
+                </div>
+              )}
                 <div className="details-info-header">WHERE TO WATCH:</div>
                 {this.state.ended && <div>No longer on the air</div>}
                 {this.state.idResults.next_episode_to_air && <div className="details-info-header">NEXT EPISODE: <span className="details-info-text">{this.state.idResults.next_episode_to_air.name} @ {this.state.idResults.next_episode_to_air.air_date}</span></div>}
@@ -136,4 +158,4 @@ class ShowDetails extends Component {
   }
 }
 
-export default withRouter(ShowDetails)
+export default ShowDetails
