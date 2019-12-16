@@ -6,10 +6,15 @@ import Nav from './Nav'
 const Header = () => {
   return (
     <div className="header">
-      <div>
-        WORTH WATCHING LOGO
+      <div className="logo">
+        <div className="logo-worth">
+          WORTH
+        </div>
+        <div className="logo-watching">
+          WATCHING
+        </div>
       </div>
-      <div>
+      <div className="nav-wrapper">
         <Nav />
       </div>
     </div>
