@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 //custom components
 import HomeSearch from './HomeSearch'
 import ShowList from './ShowList'
+import Carousel from './Carousel'
 
 //api calls
-import { SearchTvByTitle } from '../services/api-helper'
+import { SearchTvByTitle, SearchTrendingTv } from '../services/api-helper'
 
 
 class Home extends Component {
@@ -17,8 +18,14 @@ class Home extends Component {
       title: "",
       searchResults: [],
       showSearched: false,
-      imgSize: "200"
+      imgSize: "200",
+      trendingTv: [],
+      hasTrendingLoaded: false,
     }
+  }
+
+  componentDidMount = async () => {
+    await this.getTrending();
   }
 
   tvSearch = async () => {
@@ -30,6 +37,15 @@ class Home extends Component {
     this.setState({
       searchResults: filteredResults,
       showSearched: true,
+    })
+  }
+
+  getTrending = async () => {
+    const trendingTv = await SearchTrendingTv();
+
+    this.setState({
+      trendingTv,
+      hasTrendingLoaded: true,
     })
   }
 
@@ -62,6 +78,13 @@ class Home extends Component {
               imgPath={this.state.baseImgPath}
               imgSize={this.state.imgSize}
             />
+        }
+        {this.state.hasTrendingLoaded &&
+          <Carousel
+          shows={this.state.trendingTv}
+          imgPath={this.state.baseImgPath}
+          imgSize={this.state.imgSize}
+          />
         }
       </div>
     )
