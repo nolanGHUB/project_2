@@ -6,10 +6,11 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import ShowDetails from './components/ShowDetails'
-import Trending from './components/Trending'
+import TvCategory from './components/TvCategory';
 
 //react-router
 import { Switch, Route, Redirect } from 'react-router-dom'
+
 
 class App extends Component {
   constructor(props) {
@@ -29,16 +30,21 @@ class App extends Component {
             path="/details/:showId"
             render={(props) => (
               <ShowDetails
-                key={props.match.params.showId} {...props} />)
-            }
-          />
+                key={props.match.params.showId} {...props} />)}>
+          </Route>
           <Route
             path="/home">
               <Home />
           </Route>
           <Route
-            path="/trending">
-              <Trending />
+            path="/trending"
+            render={props =>
+              <TvCategory {...props} category="trending" />}>
+          </Route>
+          <Route
+            path="/tonight"
+            render={props =>
+              <TvCategory {...props} category="tonight" key={Math.random()} />}>
           </Route>
           <Route
             exact path="/">
