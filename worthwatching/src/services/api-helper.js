@@ -22,3 +22,8 @@ export const SearchTrendingTv = async () => {
   const res = await axios.get(`${baseUrl}trending/tv/week?api_key=${apiKey}`)
   return (res.data.results)
 }
+
+export const SearchTvAiringToday = async () => {
+  const res = await axios.get(`${baseUrl}tv/airing_today?api_key=${apiKey}&language=en-US`)
+  return (res.data.results)
+}
