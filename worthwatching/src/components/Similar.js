@@ -7,7 +7,7 @@ const Similar = (props) => {
   const topSixResults = props.similar.slice(0, 6);
   return (
     <div className="similar">
-      <div><h3>Similar shows:</h3></div>
+      <h3>Similar shows:</h3>
       <ShowList
         shows={topSixResults}
         imgPath={props.imgPath}
