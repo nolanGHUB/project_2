@@ -50,7 +50,6 @@ class ShowDetails extends Component {
     })
   }
 
-
   getDetails = async () => {
     const idResults = await SearchTvById(this.state.id);
     if (idResults.created_by[0]) {
@@ -83,19 +82,18 @@ class ShowDetails extends Component {
     return (
       <div className="details">
         <main className="details-img-and-text-wrapper">
-          <div className="details-img">
-            <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
-          </div>
           <div className="details-text">
             {this.state.hasDetailsLoaded &&
             <div>
+              <div className="details-img">
+              <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
+              </div>
               <div className="details-title">
                 {this.state.idResults.name}
               </div>
               <div className="details-overview">
                 {this.state.idResults.overview}
               </div>
-              
               <div className="details-info">
                 <h3>Show Info:</h3>
                 <div>
