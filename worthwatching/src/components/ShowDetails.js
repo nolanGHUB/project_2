@@ -81,19 +81,23 @@ class ShowDetails extends Component {
   render() {
     return (
       <div className="details">
-        <main className="details-img-and-text-wrapper">
-          <div className="details-text">
-            {this.state.hasDetailsLoaded &&
-            <div>
-              <div className="details-img">
+
+        {this.state.hasDetailsLoaded &&
+          <main className="details-img-and-text-wrapper">
+          
+            <div className="details-img">
               <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
-              </div>
+            </div>
+
+            <div className="details-text">
               <div className="details-title">
                 {this.state.idResults.name}
               </div>
+
               <div className="details-overview">
                 {this.state.idResults.overview}
               </div>
+
               <div className="details-info">
                 <h3>Show Info:</h3>
                 <div>
@@ -114,9 +118,9 @@ class ShowDetails extends Component {
                 {this.state.idResults.next_episode_to_air && <div>Next Episode: {this.state.idResults.next_episode_to_air.name} @ {this.state.idResults.next_episode_to_air.air_date}</div>}
               </div>
             </div>
-            }
-          </div>
-        </main>
+          </main>
+        }
+        
         {this.state.hasSimilarLoaded &&
           <div>
             <Similar
