@@ -18,6 +18,7 @@ class TvCategory extends Component {
       baseImgPath: "https://image.tmdb.org/t/p/w",
       imgSize: "200",
       hasLoaded: false,
+      title: "",
     }
   }
 
@@ -40,7 +41,8 @@ class TvCategory extends Component {
      const tvResults = await SearchTvAiringToday()
      this.setState({
        tvResults,
-       hasLoaded: true
+       hasLoaded: true,
+       title: "AIRING TODAY"
      })
    }
   
@@ -48,7 +50,8 @@ class TvCategory extends Component {
     const tvResults = await SearchTrendingTv()
     this.setState({
       tvResults,
-      hasLoaded: true
+      hasLoaded: true,
+      title: "TRENDING IN THE LAST 7 DAYS"
     })
   }
 
@@ -56,6 +59,7 @@ class TvCategory extends Component {
     // console.log(this.state.tvResults)
     return (
       <div className="tv-category-wrapper">
+        <div className="similar-title">{this.state.title}</div>
         {this.state.hasLoaded &&
           <ShowList
             shows={this.state.tvResults}
