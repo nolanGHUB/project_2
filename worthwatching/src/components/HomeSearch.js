@@ -12,7 +12,7 @@ const HomeSearch = (props) => {
           name="title"
           value={props.title}
           placeholder="TV Show Title"
-          autocomplete="off"
+          autoComplete="off"
           onChange={props.searchTextChange}
           className="search-input"
         />
