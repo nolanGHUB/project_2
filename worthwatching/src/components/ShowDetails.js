@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import { SearchTvById, SearchSimilarTvById } from '../services/api-helper'
 
 //react-router
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom' //Some reason unbeknownst to me this allows the screen scroll to reset to the top of the page instead of where-i-last-was
 
 //custom components
 import Similar from './Similar'
