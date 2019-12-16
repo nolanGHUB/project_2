@@ -50,9 +50,14 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+.similar {
+  border: 1px solid black;
+  margin: 5px;
+}
+
 .details-img-and-text-wrapper{
   display: flex;
-
 }
 
 .details-text {

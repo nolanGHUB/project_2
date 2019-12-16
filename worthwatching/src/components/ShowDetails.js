@@ -3,6 +3,12 @@ import React, {Component} from 'react'
 //api calls
 import { SearchTvById, SearchSimilarTvById } from '../services/api-helper'
 
+//react-router
+import { withRouter } from 'react-router-dom'
+
+//custom components
+import Similar from './Similar'
+
 class ShowDetails extends Component {
   constructor(props) {
     super(props)
@@ -26,6 +32,16 @@ class ShowDetails extends Component {
     await this.getSimilar();
   }
 
+//  componentDidUpdate = (prevProps) =>{
+//     let oldId = prevProps.match.params.showId
+//     let newId = this.props.match.params.showId
+//     if (newId !== oldId) {
+//       console.log("FETCH NEW DATA ON DID UPDATE")
+//       this.props.fetchResource();
+//       console.log("AFTER GETDETAILS")
+//     }
+//   }
+
   getSimilar = async () => {
     const similarResults = await SearchSimilarTvById(this.state.id);
     this.setState({
@@ -33,6 +49,7 @@ class ShowDetails extends Component {
       hasSimilarLoaded: true,
     })
   }
+
 
   getDetails = async () => {
     const idResults = await SearchTvById(this.state.id);
@@ -63,10 +80,9 @@ class ShowDetails extends Component {
   }
 
   render() {
-    // console.log(this.state.idResults)
     return (
       <div className="details">
-        <div className="details-img-and-text-wrapper">
+        <main className="details-img-and-text-wrapper">
           <div className="details-img">
             <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
           </div>
@@ -102,10 +118,19 @@ class ShowDetails extends Component {
             </div>
             }
           </div>
-        </div>
+        </main>
+        {this.state.hasSimilarLoaded &&
+          <div>
+            <Similar
+              similar={this.state.similarResults}
+              imgPath={this.state.baseImgPath}
+              imgSize={this.state.imgSize}
+            />
+          </div>
+        }
       </div>
     )
   }
 }
 
-export default ShowDetails
+export default withRouter(ShowDetails)
