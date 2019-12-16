@@ -1,10 +1,13 @@
+body {
+  background-color: #1A1B22;
+}
 img{
   display: flex;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #BFBDC6;
 }
 
 .App {
@@ -12,53 +15,67 @@ a {
   flex-direction: column;
   width: 75%;
   margin: 20px auto;
+  color: #BFBDC6;
+  background-color: #1A1B22;
 }
 
 .home {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid #BFBDC6;
+  border-right: 1px solid #BFBDC6;
   min-height: 450px;
   margin: 0;
+  background-color: #1A1B22;
 }
 
 .trending {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid #BFBDC6;
+  border-right: 1px solid #BFBDC6;
   padding: 25px;
 }
 
 .header {
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
   padding: 10px 0;
   text-align: center;
+  background-color: #21242D;
+  color: #3AF4C0;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .nav {
   font-size: 20px;
   display: flex;
   justify-content: space-around;
+  
+}
+
+.tonight {
+  border-left: 1px solid #BFBDC6;
+  border-right: 1px solid #BFBDC6;
 }
 
 .selected {
-  color: red;
+  color: #3AF4C0;
 }
 
 .footer{
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
   padding: 10px 0;
   text-align: center;
+  background-color: #21242D;
 }
 
 .details {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid #BFBDC6;
+  border-right: 1px solid #BFBDC6;
   min-height: 450px;
   display: flex;
   flex-direction: column;
 }
 
 .similar {
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
   margin: 5px;
 }
 .similar > h3 {
@@ -78,22 +95,22 @@ a {
 
 .details-title {
   font-size: 50px;
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
 }
 
 .details-overview {
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
 }
 
 .details-img > img {
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
   width: 300px;
   height: 448px;
   max-height: 450px;
 }
 
 .details-info {
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
 }
 
 .home-search {
@@ -112,6 +129,7 @@ a {
   align-content: center;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #1A1B22;
 }
 
 .show-list {
@@ -121,12 +139,13 @@ a {
   width: 100%;
   margin-left: 10px;
   margin-right: 10px;
+  
 }
 
 .show {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid #BFBDC6;
   align-items: center;
   max-width: 200px;
 }
