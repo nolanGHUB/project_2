@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import ShowDetails from './components/ShowDetails'
+import Trending from './components/Trending'
 
 //react-router
 import { Switch, Route, Redirect } from 'react-router-dom'
@@ -34,6 +35,10 @@ class App extends Component {
           <Route
             path="/home">
               <Home />
+          </Route>
+          <Route
+            path="/trending">
+              <Trending />
           </Route>
           <Route
             exact path="/">
