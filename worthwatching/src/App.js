@@ -26,9 +26,10 @@ class App extends Component {
         <Switch>
           <Route
             path="/details/:showId"
-            render={(props) => 
-              <ShowDetails {...props} />
-            } 
+            render={(props) => (
+              <ShowDetails
+                key={props.match.params.showId} {...props} />)
+            }
           />
           <Route
             path="/home">
