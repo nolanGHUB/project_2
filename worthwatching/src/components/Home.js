@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+//react-router
+import { withRouter } from 'react-router-dom'
+
 //custom components
 import HomeSearch from './HomeSearch'
 import ShowList from './ShowList'
@@ -64,6 +67,15 @@ class Home extends Component {
     })
   }
 
+  showCarousel() {
+    return (this.state.hasTrendingLoaded &&
+      <Carousel
+        shows={this.state.trendingTv}
+        imgPath={this.state.baseImgPath}
+        imgSize={this.state.imgSize}
+      />)
+  }
+
   render() {
     return (
       <div className="home">
@@ -72,23 +84,18 @@ class Home extends Component {
           searchSubmit={this.searchSubmit}
           title={this.state.title}
         />
-        {this.state.showSearched &&
-            <ShowList
-              shows={this.state.searchResults}
-              imgPath={this.state.baseImgPath}
-              imgSize={this.state.imgSize}
-            />
-        }
-        {this.state.hasTrendingLoaded &&
-          <Carousel
-          shows={this.state.trendingTv}
-          imgPath={this.state.baseImgPath}
-          imgSize={this.state.imgSize}
+        {this.state.showSearched ?
+          <ShowList
+            shows={this.state.searchResults}
+            imgPath={this.state.baseImgPath}
+            imgSize={this.state.imgSize}
           />
+          :
+          this.showCarousel()
         }
       </div>
     )
   }
 }
 
-export default Home
+export default withRouter(Home)
