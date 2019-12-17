@@ -1,6 +1,6 @@
 import axios from 'axios'
 const baseUrl = "https://api.themoviedb.org/3/"
-const apiKey = "d2c1ad868a67300815d8e695d43da4ed"
+const apiKey = process.env.REACT_APP_API_KEY
 
  
 export const SearchTvByTitle = async (title) => {
