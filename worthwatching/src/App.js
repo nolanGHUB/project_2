@@ -9,7 +9,7 @@ import ShowDetails from './components/ShowDetails'
 import TvCategory from './components/TvCategory';
 
 //react-router
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 
 
 class App extends Component {
@@ -34,7 +34,11 @@ class App extends Component {
           </Route>
           <Route
             path="/home">
-              <Home />
+            <Home />
+          </Route>
+          <Route
+            path="/home/results">
+            <Home />
           </Route>
           <Route
             path="/trending"
@@ -48,7 +52,7 @@ class App extends Component {
           </Route>
           <Route
             exact path="/">
-              <Redirect to='/home' />
+            <Redirect to='/home' />
           </Route>
         </Switch>
         <Footer />
@@ -57,4 +61,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
