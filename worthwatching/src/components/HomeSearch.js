@@ -2,11 +2,11 @@ import React from 'react'
 
 //react-router
 import { withRouter } from 'react-router-dom'
+import 'font-awesome/css/font-awesome.min.css';
 
 const HomeSearch = (props) => {
   return (
     <div className="home-search">
-
       <form
         onSubmit={props.searchSubmit}
         className="home-search-form"
@@ -20,13 +20,13 @@ const HomeSearch = (props) => {
           onChange={props.searchTextChange}
           className="search-input"
         />
-        {/* <Link to="/home/results"> */}
+        <div className="search-icon"><i className="fa fa-search"></i></div>
+
         <input
           type="submit"
           value="Search"
           className="search-button"
         />
-        {/* </Link> */}
       </form>
     </div>
   )
