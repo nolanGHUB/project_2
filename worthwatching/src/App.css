@@ -145,6 +145,7 @@ a {
   font-weight: bold;	
   letter-spacing: 1px;	
   line-height: 74px;
+  margin-bottom: 0.6em;
 }
 
 .details-overview {
@@ -204,6 +205,28 @@ a {
 }
 .details-info-right {
   order: 1;
+}
+
+.discovery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.discovery-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.discovery-form > * {
+  max-width: 25%;
+}
+
+.genre {
+  background-color: white;
+  border-radius: 0;
 }
 
 .home-search {
