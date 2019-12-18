@@ -38,7 +38,7 @@ export const SearchIdForVideo = async (id) => {
   return (res.data.results)
 }
 
-export const SearchDiscovery = async (genre, startDate, endDate) => {
-  const res = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=d2c1ad868a67300815d8e695d43da4ed&language=en-US&sort_by=popularity.desc&first_air_date.gte=1970-01-01&first_air_date.lte=2010-12-25&page=1&timezone=America%2FNew_York&with_genres=35&include_null_first_air_dates=false`)
-  return (res.data);
+export const SearchDiscovery = async (genre) => {
+  const res = await axios.get(`${baseUrl}discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=1&timezone=America%2FNew_York&with_genres=${genre}&include_null_first_air_dates=false`)
+  return (res.data.results);
 }
