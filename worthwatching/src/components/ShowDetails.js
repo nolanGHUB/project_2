@@ -136,10 +136,6 @@ class ShowDetails extends Component {
     document.querySelector("body").classList.toggle("dim");
   }
 
-  toggleDim = () => {
-    console.log(document.querySelector('.trailer'));
-  }
-
   removeListener = () => {
     document.removeEventListener("click", this.showModal);
     document.querySelector("body").classList.remove("dim");
@@ -176,6 +172,11 @@ class ShowDetails extends Component {
 
             <div className="details-img">
               <img src={`${this.state.baseImgPath}${this.state.imgSize}${this.state.idResults.poster_path}`} alt="tvPoster" />
+              {this.state.hasTrailerLoaded &&
+                <div className="trailer-button-wrapper">
+                  <button className="search-button toggle-button" onClick={this.showModal}>WATCH TRAILER</button>
+                </div>
+              }
             </div>
 
             <div className="details-text">
@@ -204,11 +205,7 @@ class ShowDetails extends Component {
                       </div>
                     )}
                   </div>
-                  {this.state.hasTrailerLoaded &&
-                    <div className="trailer-button-wrapper">
-                      <button className="search-button toggle-button" onClick={this.showModal}>WATCH TRAILER</button>
-                    </div>
-                  }
+
                 </div>
                 <div className="details-info-right">
                   {this.state.network &&
@@ -228,11 +225,9 @@ class ShowDetails extends Component {
           </main>
         }
 
-        <div className="modal-wrapper">
-          {this.state.hasTrailerLoaded && this.state.trailerKey && this.state.showModal &&
-            this.generateModal()
-          }
-        </div>
+        {this.state.hasTrailerLoaded && this.state.trailerKey && this.state.showModal &&
+          this.generateModal()
+        }
 
 
 
