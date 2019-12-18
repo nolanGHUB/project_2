@@ -7,7 +7,7 @@ const Trailer = (props) => {
         title={props.videoKey}
         width="560"
         height="315"
-        src={`https://www.youtube.com/embed/${props.videoKey}?controls=0`}
+        src={`https://www.youtube.com/embed/${props.videoKey}?rel=0?controls=1`}
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen>
