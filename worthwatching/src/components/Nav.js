@@ -9,9 +9,6 @@ const Nav = () => {
       <NavLink to="/" activeClassName="selected">
         Home
       </NavLink>
-      <NavLink to="/top" activeClassName="selected">
-        Top Shows
-      </NavLink>
       <NavLink to="/trending" activeClassName="selected">
         Trending
       </NavLink>
