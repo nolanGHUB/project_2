@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import ShowDetails from './components/ShowDetails'
 import TvCategory from './components/TvCategory';
+import Discovery from './components/Discovery'
 
 //react-router
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
@@ -32,8 +33,12 @@ class App extends Component {
                 key={props.match.params.showId} {...props} />)}>
           </Route>
           <Route
-            path="/home">
+            exact path="/home">
             <Home />
+          </Route>
+          <Route
+            path="/discovery">
+            <Discovery />
           </Route>
           <Route
             path="/home/results">
