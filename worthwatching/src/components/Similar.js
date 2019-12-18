@@ -4,7 +4,10 @@ import React from 'react'
 import ShowList from './ShowList'
 
 const Similar = (props) => {
-  const topSixResults = props.similar.slice(0, 6);
+  const workingImagesArray = props.similar.filter(show =>
+    show.poster_path
+  );
+  const topSixResults = workingImagesArray.slice(0, 6);
   return (
     <div className="similar">
       <div className="similar-title">SIMILAR SHOWS:</div>
