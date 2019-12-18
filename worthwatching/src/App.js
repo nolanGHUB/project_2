@@ -11,7 +11,6 @@ import TvCategory from './components/TvCategory';
 //react-router
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 
-
 class App extends Component {
   constructor(props) {
     super(props)
