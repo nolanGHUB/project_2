@@ -19,7 +19,7 @@ class Modal extends Component {
         </div>
         <div>
           <button
-            className="search-button"
+            className="search-button modal-button"
             onClick={e => {
               this.onClose(e);
             }}
