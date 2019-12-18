@@ -32,3 +32,8 @@ export const SearchTvCredits = async (id) => {
   const res = await axios.get(`${baseUrl}tv/${id}/credits?api_key=${apiKey}&language=en-US`)
   return (res.data.cast)
 }
+
+export const SearchIdForVideo = async (id) => {
+  const res = await axios.get(`${baseUrl}tv/${id}/videos?api_key=${apiKey}&language=en-US`)
+  return (res.data.results)
+}
