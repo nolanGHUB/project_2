@@ -19,6 +19,10 @@ class HamburgerMenu extends Component {
     });
   }
 
+  closeMenu() {
+    document.querySelector('.ham-nav').classList.toggle('open');
+  }
+
   render() {
     return (
       <div className="hamburger">
