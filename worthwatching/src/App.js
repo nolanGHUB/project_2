@@ -9,6 +9,7 @@ import ShowDetails from './components/ShowDetails'
 import TvCategory from './components/TvCategory';
 import Discovery from './components/Discovery'
 
+
 //react-router
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 
@@ -21,11 +22,17 @@ class App extends Component {
     }
   }
 
+
   render() {
     return (
       <div className="App">
         <Header />
+
         <Switch>
+          <Route
+            exact path="/">
+            <Redirect to='/home' />
+          </Route>
           <Route
             path="/details/:showId"
             render={(props) => (
@@ -41,10 +48,6 @@ class App extends Component {
             <Discovery />
           </Route>
           <Route
-            path="/home/results">
-            <Home />
-          </Route>
-          <Route
             path="/trending"
             render={props =>
               <TvCategory {...props} category="trending" />}>
@@ -54,8 +57,7 @@ class App extends Component {
             render={props =>
               <TvCategory {...props} category="tonight" key={Math.random} />}>
           </Route>
-          <Route
-            exact path="/">
+          <Route to="*">
             <Redirect to='/home' />
           </Route>
         </Switch>
