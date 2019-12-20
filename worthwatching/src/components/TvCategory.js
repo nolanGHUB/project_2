@@ -35,18 +35,18 @@ class TvCategory extends Component {
       default:
         console.log("Something went wrong, unexpected switch result in TvCategory component didMount no api called.");
     }
-   }
- 
-   getAiringTonight = async () => {
-     const tvResults = await SearchTvAiringToday()
-     this.setState({
-       tvResults,
-       hasLoaded: true,
-       title: "AIRING TODAY"
-     })
-   }
-  
-   getTrending = async () => {
+  }
+
+  getAiringTonight = async () => {
+    const tvResults = await SearchTvAiringToday()
+    this.setState({
+      tvResults,
+      hasLoaded: true,
+      title: "AIRING TODAY"
+    })
+  }
+
+  getTrending = async () => {
     const tvResults = await SearchTrendingTv()
     this.setState({
       tvResults,
@@ -56,7 +56,6 @@ class TvCategory extends Component {
   }
 
   render() {
-    // console.log(this.state.tvResults)
     return (
       <div className="tv-category-wrapper">
         <div className="similar-title">{this.state.title}</div>
