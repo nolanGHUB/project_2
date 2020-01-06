@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
   return (
     <nav className="nav">
-      <Link to="/" activeClassName="selected">
+      <Link to="/">
         Home
       </Link>
-      <Link to="/trending" activeClassName="selected">
+      <Link to="/trending">
         Trending
       </Link>
-      <Link to="/tonight" activeClassName="selected">
+      <Link to="/tonight">
         Airing Today
       </Link>
-      <Link to="/discovery" activeClassName="selected">
+      <Link to="/discovery">
         Discovery
       </Link>
     </nav>
